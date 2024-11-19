@@ -20,58 +20,60 @@ interface CandlestickChartProps {
 }
 
 const CandlestickChart = ({ data, volumeData }:CandlestickChartProps) => {
-  const chartContainerRef = useRef<HTMLDivElement>(null);
+  const chartContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const chart = createChart(chartContainerRef.current, {
-      width: chartContainerRef.current.clientWidth,
-      height: 300,
-      layout: {
-         textColor: 'white', 
-         background: {
-          type: 'solid',
-          color: 'hsl(227,10%,10%)'
-        }
-      },
-      grid: {
-        vertLines: {
-          visible: false,
+    if (chartContainerRef.current){
+      const chart = createChart(chartContainerRef.current, {
+        width: chartContainerRef.current.clientWidth,
+        height: 300,
+        layout: {
+           textColor: 'white', 
+           background: {
+            color: 'hsl(227,10%,10%)'
+          }
         },
-        horzLines: {
-          visible: false,
+        grid: {
+          vertLines: {
+            visible: false,
+          },
+          horzLines: {
+            visible: false,
+          },
         },
-      },
-      timeScale: {
-        borderColor: '#1f2937',
-      },
-      rightPriceScale: {
-        borderColor: '#1f2937',
-      },
-    });
-
-    const candlestickSeries = chart.addCandlestickSeries({
-        upColor: '#00D1FF', downColor: '#FF4EA3', borderVisible: false,
-        wickUpColor: '#00D1FF', wickDownColor: '#FF4EA3',
-    });
-
-    candlestickSeries.setData(data);
-
-     // Add volume histogram series
-     const volumeSeries = chart.addHistogramSeries({
-        color: '#31333a',
-        priceFormat: { type: 'volume' },
-        priceScaleId: ''// Place the volume series on a separate scale
+        timeScale: {
+          borderColor: '#1f2937',
+        },
+        rightPriceScale: {
+          borderColor: '#1f2937',
+        },
       });
-      volumeSeries.priceScale().applyOptions({
-        // set the positioning of the volume series
-        scaleMargins: {
-            top: 0.9, // highest point of the series will be 70% away from the top
-            bottom: 0,
-        },
-    });
-      volumeSeries.setData(volumeData);
-
-    return () => chart.remove();
+  
+      const candlestickSeries = chart.addCandlestickSeries({
+          upColor: '#00D1FF', downColor: '#FF4EA3', borderVisible: false,
+          wickUpColor: '#00D1FF', wickDownColor: '#FF4EA3',
+      });
+  
+      candlestickSeries.setData(data);
+  
+       // Add volume histogram series
+       const volumeSeries = chart.addHistogramSeries({
+          color: '#31333a',
+          priceFormat: { type: 'volume' },
+          priceScaleId: ''// Place the volume series on a separate scale
+        });
+        volumeSeries.priceScale().applyOptions({
+          // set the positioning of the volume series
+          scaleMargins: {
+              top: 0.9, // highest point of the series will be 70% away from the top
+              bottom: 0,
+          },
+      });
+        volumeSeries.setData(volumeData);
+  
+      return () => chart.remove();
+    }
+    
   }, [data]);
 
   return (

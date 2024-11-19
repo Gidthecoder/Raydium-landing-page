@@ -45,7 +45,7 @@ export default function ConnectWallet(){
     }, [shouldScroll]); 
 
     return (
-        <div ref={heroRef} className="flex flex-col lg:flex-row items-center pt-40 gap-4 lg:w-[80%] lg:mx-auto m-4">
+        <div ref={heroRef} className="flex flex-col lg:flex-row items-center pt-40 gap-4 lg:w-[80%] lg:mx-auto m-4 overflow-x-hidden">
             <div ref={ref} className={`order-last text-center lg:text-left lg:w-[50%] flex-none space-y-2 md:space-y-4 lg:px-10 duration-500 ease-out transform ${isVisible ? 'opacity-100 lg:translate-x-0 ' : 'opacity-0 lg:translate-x-[-200px]'}`}>
                 <p className="text-2xl md:text-3xl font-semibold">Connect to over 10 wallets</p>
                 <p className="text-base md:text-xl text-gray-400">Easily link your favorite wallet—whether it’s MetaMask, Coinbase, Phantom, Solflare, or others. Start trading and earning in seconds, no matter which wallet you use.</p>
