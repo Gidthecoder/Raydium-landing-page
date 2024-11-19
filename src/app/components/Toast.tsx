@@ -13,7 +13,7 @@ function PassIcon(){
  export default function Toast({ message = "Copied successfully!", duration = 3000, handleClick }: any) {
     const [progress, setProgress] = useState(100)
   
-    const ref = useRef(null);
+    const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
   
@@ -21,7 +21,10 @@ function PassIcon(){
         setProgress((prevProgress) => {
           if (prevProgress <= 10) {
             clearInterval(interval)
-            ref.current.click()
+            if (ref.current){
+              ref.current.click()
+            }
+            
 
             
             return 0
