@@ -6,14 +6,14 @@ import { ExternalLink } from "../icons";
 
 export default function Hero() {
     const [isVisible, setIsVisible] = useState(false);
-    const ref = useRef(null);
+    const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
-                    observer.unobserve(ref.current);
+                    observer.unobserve(ref.current!);
                 }
             },
             {
