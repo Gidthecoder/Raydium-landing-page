@@ -15,7 +15,7 @@ export default function SwapOptions({isSwapped=false, toggleSwapPosition}:SwapOp
             </button>      
             <div className="flex items-center space-x-2 text-sm text-gray-400">
               <div className="group flex flex-row gap-x-1 items-center text-[10px] sm:text-xs sm:py-[2px] px-2 border border-transparent transition-all hover:border-[#00D1FF] hover:text-[#00D1FF] bg-gray-800 rounded-full ">
-                <FilterIcon/>
+                <FilterIcon />
                 <span>0.5%</span>
               </div>
               <LinkIcon/>
