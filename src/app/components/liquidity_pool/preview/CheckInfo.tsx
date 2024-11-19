@@ -101,7 +101,7 @@ function List({category, subCat}:{category:string, subCat:string}){
         ]
     }
 
-    const filtered = data[category].filter((item:any) => item.base === subCat)[0].data
+    const filtered = data[category as keyof typeof data].filter((item:any) => item.base === subCat)[0].data
 
     return (
         <table className="w-full rounded-tl-xl">
