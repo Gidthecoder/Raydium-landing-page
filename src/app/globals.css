@@ -19,3 +19,57 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+* {box-sizing: border-box;}
+
+@font-face {
+    font-family: 'SpaceGrotesk-light';
+    src: url('./fonts/SpaceGrotesk-Light.otf') format('opentype');
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'SpaceGrotesk-medium';
+    src: url('./fonts/SpaceGrotesk-Medium.otf')  format('opentype');
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'SpaceGrotesk-bold';
+    src: url('./fonts/SpaceGrotesk-Bold.otf') format('opentype');
+    font-style: bold;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'SpaceGrotesk-regular';
+    src: url('./fonts/SpaceGrotesk-Regular.otf') format('opentype');
+    font-style: bold;
+    font-display: swap;
+  }
+  
+  .font-grotesk-bold {
+    font-family: 'SpaceGrotesk-bold', Helvetica, Arial, sans-serif;
+  }
+
+  .font-grotesk-medium {
+    font-family: 'SpaceGrotesk-medium', Helvetica, Arial, sans-serif;
+  }
+
+  .font-grotesk-light {
+    font-family: 'SpaceGrotesk-light', Helvetica, Arial, sans-serif;
+  }
+
+  .font-grotesk-regular {
+    font-family: 'SpaceGrotesk-regular', Helvetica, Arial, sans-serif;
+  }
+
+  .no-select {
+    user-select: none;
+  }
